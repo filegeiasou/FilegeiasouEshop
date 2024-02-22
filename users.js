@@ -84,17 +84,54 @@ router.get('/product' , (req, res) => {
 });
 
 
+// router.get('/about' , (req, res) => {
+//   fs.readFile('about.html', function(err, data) {
+//     if (err) {
+//       res.writeHead(500, {'Content-Type': 'text/plain'});
+//       return res.end('Error loading index.html');
+//     }
+//     res.writeHead(200, {'Content-Type': 'text/html'});
+//     res.write(data);
+//     return res.end();
+//   });
+// });
+
 router.get('/about' , (req, res) => {
-  fs.readFile('about.html', function(err, data) {
-    if (err) {
-      res.writeHead(500, {'Content-Type': 'text/plain'});
-      return res.end('Error loading index.html');
-    }
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    res.write(data);
-    return res.end();
-  });
+  res.send(`
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filegeiasou eShop</title>
+    <link rel="stylesheet" href="/styles1.css">
+  </head>
+  <body>
+    <header>
+      <h1>Filegeiasou eShop</h1>
+      <nav>
+        <ul>
+          <li><a href="./home">Home</a></li>
+          <li><a href="./contact">Contact</a></li>
+          <li><a href="./product">Products</a></li>
+          <li><a href="./about">About</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="about">
+        <h2>About Us</h2>
+        <p>Filegeiasou eShop is a tech company that provides a wide range of products to meet all your tech needs. We offer a variety of products including keyboards, mice, and PCs. Our products are of the highest quality and are available at affordable prices. We are committed to providing our customers with the best products and services. Our team is dedicated to ensuring that you have a great shopping experience. We are always here to help you find the perfect product for your needs. We look forward to serving you and providing you with the best tech products.</p>
+      <footer id="myFooter">
+          <p>&copy; 2024 Filegeiasou eShop</p>
+        </footer>      
+  </body>
+  </html>
+  `);
 });
+
+
 
 router.get('/contact' , (req, res) => {
   fs.readFile('contact.html', function(err, data) {
@@ -107,6 +144,7 @@ router.get('/contact' , (req, res) => {
     return res.end();
   });
 });
+
 
 
 module.exports = router;
