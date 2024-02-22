@@ -11,6 +11,7 @@ app.get('/', (req, res) => {
 });
 app.use('/view', require('./view'));
 app.use('/users', require('./users'));
+app.use('/viewlink', require('./viewlink'));
 
 
 const PORT = process.env.PORT || 80;
